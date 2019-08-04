@@ -1,7 +1,11 @@
 spring:
   application:
     name: zuul
-    
+  rabbitmq:
+    host: 192.168.189.132
+    port: 5672
+    username: admin
+    password: admin  
 server:
   port: 3001
   
@@ -14,7 +18,7 @@ zuul:
   routes:
     item-service: /item-service/**
     user-service: /user-service/**
-    order-service: /order-service/**  #这里默认就是这种形式,可以省略
+    order-service: /order-service/**  #杩欓噷榛樿灏辨槸杩欑褰㈠紡,鍙互鐪佺暐
   retryable: true
 
 ribbon:
@@ -29,7 +33,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 500 #降低 hystrix 超时时间，以便测试降级
+            timeoutInMilliseconds: 500 #闄嶄綆 hystrix 瓒呮椂鏃堕棿锛屼互渚挎祴璇曢檷绾�
 
 management:
   endpoints:
